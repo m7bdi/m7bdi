@@ -1,0 +1,41 @@
+import tkinter as tk
+
+def calculate_gpa():
+    total_subjects_score = float(subjects_score_entry.get())
+    total_program_subjects_score = float(program_subjects_score_entry.get())
+    program_subjects_count = float(program_subjects_count_entry.get())
+    
+    result1 = (total_subjects_score / 9) * 0.4
+    result2 = (total_program_subjects_score / program_subjects_count) * 0.6
+    
+    gpa = result1 + result2
+    
+    result_label.config(text=f"معدلك التنافسي هو: {gpa:.2f}", fg="#4CAF50")
+    
+root = tk.Tk()
+root.geometry("500x300")
+root.title("حاسبة المعدل التنافسي")
+
+root.configure(bg="#F0F0F0")
+
+tk.Label(root, text="ﺩﺍﻮﻤﻟﺍ ﻊﻴﻤﺟ ﻲﻓ ﻚﺗﺎﺟﺭﺩ ﻉﻮﻤﺠﻣ:", bg="#F0F0F0", font=("Arial", 14)).grid(row=0, column=0)
+tk.Label(root, text="ﺞﻣﺎﻧﺮﺒﻠﻟ ﺔﺑﻮﻠﻄﻤﻟﺍ ﺩﺍﻮﻤﻟﺍ ﺕﺎﺟﺭﺩ ﻉﻮﻤﺠﻣ :", bg="#F0F0F0", font=("Arial", 14)).grid(row=1, column=0)
+tk.Label(root, text="ﺞﻣﺎﻧﺮﺒﻟﺍ ﺩﺍﻮﻣ ﺩﺪﻋ :", bg="#F0F0F0", font=("Arial", 14)).grid(row=2, column=0)
+
+subjects_score_entry = tk.Entry(root, font=("Arial", 14))
+program_subjects_score_entry = tk.Entry(root, font=("Arial", 14))
+program_subjects_count_entry = tk.Entry(root, font=("Arial", 14))
+
+subjects_score_entry.grid(row=0, column=1)
+program_subjects_score_entry.grid(row=1, column=1)
+program_subjects_count_entry.grid(row=2, column=1)
+
+tk.Button(root, text="ﺏﺎﺴﺣ", command=calculate_gpa, bg="#4CAF50", fg="white", font=("Arial", 14)).grid(row=3, column=0, columnspan=2, pady=20)
+
+result_label = tk.Label(root, font=("Arial", 18), bg="#F0F0F0")
+result_label.grid(row=4, column=0, columnspan=2, pady=20)
+
+root.mainloop()
+
+
+
